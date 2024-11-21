@@ -8,6 +8,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.pertemuan7.ui.viewmodel.MahasiswaViewModel
+import androidx.navigation.NavHost
+import androidx.navigation.compose.NavHost
 
 enum class Halaman{
     Formulir,
@@ -21,5 +23,7 @@ fun Pengelolahalaman(
     viewModel: MahasiswaViewModel = viewModel()
 ){
     val StateUI by viewModel.uiState.collectAsState()
+    NavHost(navController = navController, startDestination = Halaman.Formulir.name){
 
+    }
 }
