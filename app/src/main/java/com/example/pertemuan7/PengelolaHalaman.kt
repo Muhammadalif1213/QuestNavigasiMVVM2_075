@@ -13,6 +13,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pertemuan7.model.JenisKelamin
 import com.example.pertemuan7.ui.view.FormMahasiswa
+import androidx.compose.ui.platform.LocalContext
+import com.example.pertemuan7.ui.view.DetailMahasiswaView
 
 enum class Halaman{
     Formulir,
@@ -29,7 +31,6 @@ fun Pengelolahalaman(
     NavHost(navController = navController, startDestination = Halaman.Formulir.name){
         composable(route = Halaman.Formulir.name){
             val konteks = LocalContext.current
-
             FormMahasiswa(
                 modifier = Modifier,
                 listJk = JenisKelamin.listJK.map{
@@ -39,6 +40,12 @@ fun Pengelolahalaman(
                     viewModel.saveDataMahasiswa(it)
                     navController.navigate(Halaman.Detail.name)
                 }
+            )
+        }
+        composable(route = Halaman.Detail.name){
+            DetailMahasiswaView(
+                modifier = Modifier,
+                uiStateMahasiswa = StateUI,
             )
         }
 
