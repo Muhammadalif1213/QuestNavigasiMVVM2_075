@@ -40,7 +40,7 @@ fun FormMahasiswa(
 
     val dataMahasiswa: MutableList<String> = mutableListOf(nama, nim, selectGender, alamat, email, noHp)
 
-    Column(modifier.fillMaxSize().padding(16.dp),
+    Column(modifier.fillMaxSize().padding(16.dp).padding(top = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {

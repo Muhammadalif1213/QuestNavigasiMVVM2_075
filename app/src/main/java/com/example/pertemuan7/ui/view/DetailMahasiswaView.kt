@@ -3,6 +3,7 @@ package com.example.pertemuan7.ui.view
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -25,11 +26,14 @@ fun DetailMahasiswaView(
         Pair("Gender", uiStateMahasiswa.gender),
         Pair("Alamat", uiStateMahasiswa.alamat),
         Pair("email", uiStateMahasiswa.email),
-        Pair("noHp",uiStateMahasiswa.noHp)
+        Pair("No Handphone",uiStateMahasiswa.noHp)
 
     )
 
-    Column() {
+    Column(
+        modifier.fillMaxSize().padding(16.dp).padding(top = 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         listDataMahasiswa.forEach { items ->
             CardSection(
             JudulParam = items.first,
