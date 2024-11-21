@@ -46,8 +46,11 @@ fun Pengelolahalaman(
             DetailMahasiswaView(
                 modifier = Modifier,
                 uiStateMahasiswa = StateUI,
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+
             )
         }
-
     }
 }
