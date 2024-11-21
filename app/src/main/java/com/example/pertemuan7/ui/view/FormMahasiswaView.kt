@@ -32,12 +32,13 @@ fun FormMahasiswa(
     onSubmitClicked: (MutableList<String>) -> Unit
 ){
     var nama by remember { mutableStateOf("") }
+    var nim by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var noHp by remember { mutableStateOf("") }
     var selectGender by remember { mutableStateOf("") }
 
-    val dataMahasiswa: MutableList<String> = mutableListOf(nama, selectGender, alamat, email, noHp)
+    val dataMahasiswa: MutableList<String> = mutableListOf(nama, nim, selectGender, alamat, email, noHp)
 
     Column(modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -50,6 +51,14 @@ fun FormMahasiswa(
             label = { Text("Nama") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
+        OutlinedTextField(
+            value = nim, onValueChange = { nim = it },
+            placeholder = { Text("Masukan NIM anda") },
+            label = { Text("NIM") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            modifier = Modifier.fillMaxWidth()
         )
 
         Row(verticalAlignment = Alignment.CenterVertically) {
