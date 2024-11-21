@@ -10,6 +10,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pertemuan7.ui.viewmodel.MahasiswaViewModel
 import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.example.pertemuan7.model.JenisKelamin
+import com.example.pertemuan7.ui.view.FormMahasiswa
 
 enum class Halaman{
     Formulir,
@@ -24,6 +27,20 @@ fun Pengelolahalaman(
 ){
     val StateUI by viewModel.uiState.collectAsState()
     NavHost(navController = navController, startDestination = Halaman.Formulir.name){
+        composable(route = Halaman.Formulir.name){
+            val konteks = LocalContext.current
+
+            FormMahasiswa(
+                modifier = Modifier,
+                listJk = JenisKelamin.listJK.map{
+                        id -> konteks.resources.getString(id)
+                },
+                onSubmitClicked = {
+                    viewModel.saveDataMahasiswa(it)
+                    navController.navigate(Halaman.Detail.name)
+                }
+            )
+        }
 
     }
 }
