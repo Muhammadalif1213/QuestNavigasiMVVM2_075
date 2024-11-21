@@ -1,6 +1,8 @@
 package com.example.pertemuan7
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -18,5 +20,6 @@ fun Pengelolahalaman(
     navController: NavHostController = rememberNavController(),
     viewModel: MahasiswaViewModel = viewModel()
 ){
+    val StateUI by viewModel.uiState.collectAsState()
 
 }
